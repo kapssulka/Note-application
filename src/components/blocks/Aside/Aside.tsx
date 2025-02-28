@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./Aside.module.scss";
 import { HiHome } from "react-icons/hi";
 import { IoIosCheckmarkCircle } from "react-icons/io";

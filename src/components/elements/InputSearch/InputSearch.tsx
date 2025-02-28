@@ -1,9 +1,13 @@
-import React from "react";
 import classes from "./InputSearch.module.scss";
 import cn from "classnames";
 import { CiSearch } from "react-icons/ci";
 
-export default function InputSearch({ placeholder, className }) {
+interface IProps {
+  placeholder: string;
+  className: string;
+}
+
+export default function InputSearch({ placeholder, className }: IProps) {
   return (
     <label className={cn(classes.wrapper, className)}>
       <input className={classes.input} placeholder={placeholder} type="text" />
