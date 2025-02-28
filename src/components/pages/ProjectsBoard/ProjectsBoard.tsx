@@ -2,7 +2,7 @@ import classes from "./ProjectsBoard.module.scss";
 import Projects from "../../blocks/Projects/Projects";
 import AsideProjects from "../../blocks/AsideProjects/AsideProjects";
 import { useGetDataQuery } from "../../../redux/projectsApi";
-import { auth } from "../../../firebase";
+import { auth } from "../../../firebase.js";
 import { useEffect, useState } from "react";
 
 export default function ProjectsBoard() {

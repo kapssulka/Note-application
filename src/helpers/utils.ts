@@ -1,8 +1,11 @@
+import { IProjectData, Status, Tasks } from "../types/data";
+
 // calcPersentComplitedTasks
-export const calcPersentComplitedTasks = (tasks) => {
-  let persentCompleted = 0;
+export const calcPersentComplitedTasks = (tasks: Tasks): number => {
+  let persentCompleted: number = 0;
   if (tasks.length > 0) {
-    const completed = tasks.filter((task) => task.completed === true);
+    const completed: Tasks = tasks.filter((task) => task.completed === true);
+
     persentCompleted = (100 * completed.length) / tasks.length;
   }
 
@@ -11,12 +14,15 @@ export const calcPersentComplitedTasks = (tasks) => {
 
 // returns projects with the specified status
 
-export const getProjectsByStatus = (data, status) => {
+export const getProjectsByStatus = (
+  data: IProjectData[],
+  status: Status
+): IProjectData[] => {
   return data?.filter((item) => item.status === status) || [];
 };
 
 //
-export const adjustHeight = (textarea) => {
+export const adjustHeight = (textarea: HTMLTextAreaElement): void => {
   if (textarea) {
     textarea.style.height = "auto"; // Сбрасываем высоту
     textarea.style.height = `${textarea.scrollHeight}px`; // Устанавливаем высоту на основе содержимого
