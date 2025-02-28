@@ -1,5 +1,14 @@
-import React from "react";
+import { Dispatch, SetStateAction } from "react";
 import classes from "./Input.module.scss";
+
+interface IProps {
+  name?: string;
+  label?: string;
+  type?: "text" | "password" | "email";
+  placeholder?: string;
+  valueInput: string;
+  onChange: Dispatch<SetStateAction<string>>;
+}
 
 export default function Input({
   name,
@@ -8,7 +17,7 @@ export default function Input({
   placeholder = "",
   valueInput,
   onChange,
-}) {
+}: IProps) {
   return (
     <fieldset className={classes.wrapper}>
       <label className={classes.title} htmlFor={name}>

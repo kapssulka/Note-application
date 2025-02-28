@@ -1,7 +1,13 @@
+import { ReactNode } from "react";
 import classes from "./FormNavLink.module.scss";
 import { NavLink } from "react-router-dom";
 
-export default function FormNavLink({ children, to }) {
+interface IProps {
+  children: ReactNode;
+  to: string;
+}
+
+export default function FormNavLink({ children, to }: IProps) {
   return (
     <NavLink
       to={to}

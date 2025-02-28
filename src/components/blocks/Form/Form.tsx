@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Form.module.scss";
 import Input from "../../elements/Input/Input";
 import Button from "../../elements/Button/Button";
@@ -8,18 +8,22 @@ import {
 } from "../../../helpers/HelpersFirebase";
 import { useNavigate } from "react-router-dom";
 
-export default function Form({ isRegister = false }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+interface IProps {
+  isRegister?: boolean;
+}
+
+export default function Form({ isRegister = false }: IProps) {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const navigate = useNavigate();
 
-  const handleClick = async (e) => {
+  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (isRegister && email && password.length >= 6) {
-      await createUserWithFirebase(email, password, name);
+      await createUserWithFirebase(email, password);
 
       setEmail("");
       setPassword("");
@@ -27,8 +31,6 @@ export default function Form({ isRegister = false }) {
     }
 
     if (!isRegister && email && password.length >= 6) {
-      console.log("Вход");
-
       await singInWithFirebase(email, password);
       setEmail("");
       setPassword("");

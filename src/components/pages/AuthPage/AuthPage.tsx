@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./AuthPage.module.scss";
 import FormNavLink from "../../elements/FormNavLink/FormNavLink";
 import { Outlet } from "react-router-dom";

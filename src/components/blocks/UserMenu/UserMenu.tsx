@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./UserMenu.module.scss";
 import AvatarUser from "../../elements/AvatarUser/AvatarUser";
 import { MdKeyboardArrowDown } from "react-icons/md";
