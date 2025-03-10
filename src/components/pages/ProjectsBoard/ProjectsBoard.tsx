@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default function ProjectsBoard() {
   const [userId, setUserId] = useState<null | string>(null);
 
-  const { data } = useGetDataQuery([userId], {
+  const { data } = useGetDataQuery([userId as string], {
     skip: !userId,
   });
 
@@ -20,8 +20,12 @@ export default function ProjectsBoard() {
 
   return (
     <section className={classes.wrapper}>
-      <Projects data={data} />
-      <AsideProjects data={data} />
+      {data && (
+        <>
+          <Projects data={data} />
+          <AsideProjects data={data} />
+        </>
+      )}
     </section>
   );
 }

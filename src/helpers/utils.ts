@@ -22,7 +22,7 @@ export const getProjectsByStatus = (
 };
 
 //
-export const adjustHeight = (textarea: HTMLTextAreaElement): void => {
+export const adjustHeight = (textarea: HTMLTextAreaElement | null): void => {
   if (textarea) {
     textarea.style.height = "auto"; // Сбрасываем высоту
     textarea.style.height = `${textarea.scrollHeight}px`; // Устанавливаем высоту на основе содержимого

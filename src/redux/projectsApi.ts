@@ -1,4 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IProjectData, Tasks } from "../types/data";
+
+interface INewFieldTasks {
+  tasks: Tasks;
+}
 
 export const projectsApi = createApi({
   reducerPath: "projectsApi",
@@ -6,29 +11,29 @@ export const projectsApi = createApi({
   tagTypes: ["Projects"],
 
   endpoints: (build) => ({
-    getData: build.query({
+    getData: build.query<IProjectData[], string[]>({
       query: ([userId, id]) =>
         `projects?userId=${userId ? `${userId}` : ""}${id ? `&id=${id}` : ""}`,
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }) => ({ type: "Projects", id })),
+              ...result.map(({ id }) => ({ type: "Projects" as const, id })),
               { type: "Projects", id: "LIST" },
             ]
           : [{ type: "Projects", id: "LIST" }],
     }),
-    getSingleData: build.query({
+    getSingleData: build.query<IProjectData[], string | undefined>({
       query: (id) => `projects?id=${id}`,
       providesTags: (result) =>
         result
           ? [
-              ...result.map(({ id }) => ({ type: "Projects", id })),
+              ...result.map(({ id }) => ({ type: "Projects" as const, id })),
               { type: "Projects", id: "LIST" },
             ]
           : [{ type: "Projects", id: "LIST" }],
     }),
     // добавление нового проэкта
-    addProject: build.mutation({
+    addProject: build.mutation<void, IProjectData>({
       query: (body) => ({
         url: "projects",
         method: "POST",
@@ -37,7 +42,7 @@ export const projectsApi = createApi({
       invalidatesTags: [{ type: "Projects", id: "LIST" }],
     }),
     // изменение поля
-    patchData: build.mutation({
+    patchData: build.mutation<void, [string, INewFieldTasks]>({
       query: ([id, newField]) => ({
         url: `projects/${id}`,
         method: "PATCH",
@@ -45,9 +50,8 @@ export const projectsApi = createApi({
       }),
       invalidatesTags: [{ type: "Projects", id: "LIST" }],
     }),
-
     // удаление проекта
-    deleteProject: build.mutation({
+    deleteProject: build.mutation<void, string>({
       query: (id) => ({
         url: `projects/${id}`,
         method: "DELETE",

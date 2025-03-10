@@ -49,13 +49,15 @@ export default function AddNewForm({ setAdded }: IProps) {
       const description: string = descriptionInputRef.current.value;
 
       if (title.length > 1 && description.length > 1) {
-        const complitedData = createFormProjectData(
+        const completedData = createFormProjectData(
           tasksInputRefs.current,
           title,
           description
         );
-        postData(complitedData).unwrap();
-        setAdded();
+        if (completedData) {
+          postData(completedData).unwrap();
+          setAdded();
+        }
       }
     }
   };
@@ -79,7 +81,7 @@ export default function AddNewForm({ setAdded }: IProps) {
       />
 
       <div className={classes.addTasks}>
-        <Title className={classes.addTasksTitle} vatiant="h4">
+        <Title className={classes.addTasksTitle} variant="h4">
           Add tasks immediately?
         </Title>
 
