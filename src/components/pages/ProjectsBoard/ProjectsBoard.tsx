@@ -3,10 +3,13 @@ import Projects from "../../blocks/Projects/Projects";
 import AsideProjects from "../../blocks/AsideProjects/AsideProjects";
 import { useGetDataQuery } from "../../../redux/projectsApi";
 import { auth } from "../../../firebase.js";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
+import { setUserId } from "../../../redux/userSlice";
 
 export default function ProjectsBoard() {
-  const [userId, setUserId] = useState<null | string>(null);
+  const dispatch = useAppDispatch();
+  const userId = useAppSelector((state) => state.user.userId);
 
   const { data } = useGetDataQuery([userId as string], {
     skip: !userId,
@@ -14,8 +17,9 @@ export default function ProjectsBoard() {
 
   useEffect(() => {
     const { currentUser } = auth;
-    if (currentUser) setUserId(currentUser.uid);
-    else setUserId(null);
+    if (currentUser) {
+      dispatch(setUserId(currentUser.uid));
+    } else setUserId(null);
   }, []);
 
   return (

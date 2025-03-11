@@ -28,3 +28,16 @@ export const adjustHeight = (textarea: HTMLTextAreaElement | null): void => {
     textarea.style.height = `${textarea.scrollHeight}px`; // Устанавливаем высоту на основе содержимого
   }
 };
+
+//
+export const projectSearchByName = (
+  data: IProjectData[],
+  searchText: string,
+  limit: number | undefined = undefined
+): IProjectData[] => {
+  const filteredData = data.filter((item) => item.title.startsWith(searchText));
+  if (limit) {
+    return filteredData.slice(0, limit);
+  }
+  return filteredData;
+};

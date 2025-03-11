@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "normalize.css";
 import "./styles/index.scss";
-import { store } from "./redux/index.js";
+import store from "./redux";
 import { Provider } from "react-redux";
 import "./firebase.js";
 

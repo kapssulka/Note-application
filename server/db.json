@@ -86,22 +86,12 @@
       "userId": "et3sfNHd00RbeKjTg561nEaHGaz2",
       "title": "11111",
       "description": "22222",
-      "status": "total",
+      "status": "progress",
       "tasks": [
-        {
-          "id": "9f482e0e-748e-464a-8acf-13902d8f57a6",
-          "text": "asd",
-          "completed": false
-        },
-        {
-          "id": "9ea2861d-7919-47f4-a76d-3c11a5be2e2b",
-          "text": "dd",
-          "completed": false
-        },
         {
           "id": "4840c73c-2ea8-4483-99bf-14af4b0f3861",
           "text": "hyd",
-          "completed": false
+          "completed": true
         },
         {
           "id": "7e805453-c356-4e4a-bc3f-f16ec81e1e26",
@@ -112,6 +102,16 @@
           "id": "c5c7dea5-b4ba-4fff-af78-852eca704065",
           "text": "4",
           "completed": false
+        },
+        {
+          "id": "9ea2861d-7919-47f4-a76d-3c11a5be2e2b",
+          "text": "dd",
+          "completed": true
+        },
+        {
+          "id": "9f482e0e-748e-464a-8acf-13902d8f57a6",
+          "text": "asd",
+          "completed": true
         }
       ]
     },

@@ -1,6 +1,8 @@
 @use "../../../styles/vars.scss" as *;
 
 .wrapper {
+  display: none;
+
   position: absolute;
   z-index: 1;
 
@@ -14,6 +16,10 @@
   -webkit-box-shadow: -1px 9px 23px 0px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: -1px 9px 23px 0px rgba(34, 60, 80, 0.2);
   box-shadow: -1px 9px 23px 0px rgba(34, 60, 80, 0.2);
+
+  &.visible {
+    display: block;
+  }
 }
 .item {
   cursor: pointer;

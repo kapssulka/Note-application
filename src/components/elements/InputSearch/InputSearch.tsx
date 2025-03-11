@@ -1,20 +1,46 @@
 import classes from "./InputSearch.module.scss";
 import cn from "classnames";
-import { useState } from "react";
+import {
+  Dispatch,
+  ForwardedRef,
+  forwardRef,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { CiSearch } from "react-icons/ci";
 
 interface IProps {
   placeholder: string;
   className: string;
+  searchText: string;
+  setSearchText: Dispatch<SetStateAction<string>>;
+  setVisibleDropDown: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function InputSearch({ placeholder, className }: IProps) {
-  const [searchText, setSearchText] = useState<string>("");
+function InputSearch(
+  {
+    placeholder,
+    className,
+    searchText,
+    setSearchText,
+    setVisibleDropDown,
+  }: IProps,
+  ref?: ForwardedRef<HTMLInputElement>
+) {
+  useEffect(() => {
+    if (searchText.length > 0) setVisibleDropDown(true);
+    else setVisibleDropDown(false);
+  }, [searchText]);
 
   return (
     <label className={cn(classes.wrapper, className)}>
       <input
+        ref={ref}
         onChange={(e) => setSearchText(e.target.value)}
+        onClick={(e) => {
+          if (searchText.length > 0) setVisibleDropDown(true);
+        }}
         value={searchText}
         className={classes.input}
         placeholder={placeholder}
@@ -35,3 +61,5 @@ export default function InputSearch({ placeholder, className }: IProps) {
     </label>
   );
 }
+
+export default forwardRef<HTMLInputElement, IProps>(InputSearch);
