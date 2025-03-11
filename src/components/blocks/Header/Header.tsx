@@ -1,22 +1,19 @@
 import classes from "./Header.module.scss";
 
-import { RxHamburgerMenu } from "react-icons/rx";
 import InputSearch from "../../elements/InputSearch/InputSearch";
 import UserMenu from "../UserMenu/UserMenu";
-import IconHoverWrapper from "../../elements/IconHoverWrapper/IconHoverWrapper";
+import DropDownSearch from "../../elements/DropDownSearch/DropDownSearch";
 
 export default function Header() {
   return (
     <header className={classes.header}>
       <div className={classes.left}>
-        <IconHoverWrapper>
-          <RxHamburgerMenu size={30} />
-        </IconHoverWrapper>
-
         <InputSearch
           className={classes.input}
           placeholder="Enter projects or tasks"
         />
+
+        <DropDownSearch />
       </div>
 
       <UserMenu />

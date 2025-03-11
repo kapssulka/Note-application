@@ -19,21 +19,34 @@
   border-radius: 40px;
 }
 
-.iconSearch {
-  cursor: pointer;
-
+.iconSearchWrapper {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+
+  width: 45px;
+  height: 45px;
   left: 20px;
   top: 50%;
-
-  padding: 8px;
-  border-radius: 50%;
-
   transform: translateY(-50%);
 
+  padding: 0;
+
   transition: all 0.2s ease-in-out;
+  border-radius: 50%;
 
   &:hover {
     background-color: rgba($color: $blue, $alpha: 0.1);
   }
+
+  &:disabled {
+    background-color: #fff;
+  }
+}
+.iconSearch {
+  cursor: pointer;
+
+  padding: 8px;
 }

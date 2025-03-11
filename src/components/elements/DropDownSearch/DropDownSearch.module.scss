@@ -1,0 +1,50 @@
+@use "../../../styles/vars.scss" as *;
+
+.wrapper {
+  position: absolute;
+  z-index: 1;
+
+  overflow: hidden;
+
+  top: 70px;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
+
+  -webkit-box-shadow: -1px 9px 23px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: -1px 9px 23px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 9px 23px 0px rgba(34, 60, 80, 0.2);
+}
+.item {
+  cursor: pointer;
+  display: block;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5;
+
+  white-space: nowrap; /* Запрещает перенос строк */
+  overflow: hidden; /* Обрезает текст, выходящий за границы */
+  text-overflow: ellipsis; /* Добавляет "..." в конце обрезанного текста */
+
+  &:not(:last-child) {
+    border-bottom: 2px solid $light-grey;
+  }
+
+  &:hover {
+    background-color: $light-grey;
+  }
+}
+
+.notFound {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  text-align: center;
+  width: 100%;
+  padding: 40px;
+}
