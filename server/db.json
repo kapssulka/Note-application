@@ -51,18 +51,18 @@
       "status": "progress",
       "tasks": [
         {
-          "id": "9049b533-19f3-4927-8c50-a58f8e792379",
-          "text": "1",
-          "completed": true
-        },
-        {
-          "id": "642e42f2-9872-467b-a7e3-b7e1058ea5e3",
-          "text": "asd",
+          "id": "2015f7c0-9df2-477d-a135-0201544f674f",
+          "text": "12",
           "completed": false
         },
         {
-          "id": "cdc8d803-f61a-48b8-88da-fba4f2d9eb09",
-          "text": "asd",
+          "id": "b2002736-df47-4397-8730-8521de67b25b",
+          "text": "213",
+          "completed": true
+        },
+        {
+          "id": "3403c8d3-6c82-4ea8-9bc6-0d228a71769f",
+          "text": "123",
           "completed": true
         }
       ]
@@ -72,12 +72,17 @@
       "userId": "et3sfNHd00RbeKjTg561nEaHGaz2",
       "title": "ФФФФФФФФФФФФФ",
       "description": "Фывфыв",
-      "status": "completed",
+      "status": "waiting",
       "tasks": [
         {
-          "id": "4ad1cafd-5375-4218-86fb-262dcbd969c1",
-          "text": "фыв",
-          "completed": true
+          "id": "78467f78-b0ad-404f-a455-59ce8d400754",
+          "text": "123",
+          "completed": false
+        },
+        {
+          "id": "a02c25fa-9a32-4595-bbcc-d7e7737d0743",
+          "text": "123",
+          "completed": false
         }
       ]
     },
@@ -86,7 +91,7 @@
       "userId": "et3sfNHd00RbeKjTg561nEaHGaz2",
       "title": "11111",
       "description": "22222",
-      "status": "progress",
+      "status": "completed",
       "tasks": [
         {
           "id": "4840c73c-2ea8-4483-99bf-14af4b0f3861",

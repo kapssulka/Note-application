@@ -47,17 +47,12 @@ function InputSearch(
         type="text"
       />
 
-      <button
-        disabled={searchText.length < 1}
-        className={classes.iconSearchWrapper}
-      >
-        <CiSearch
-          size={40}
-          className={cn(classes.iconSearch, {
-            [classes.disabled]: searchText.length > 0,
-          })}
-        />
-      </button>
+      <CiSearch
+        size={40}
+        className={cn(classes.iconSearch, {
+          [classes.disabled]: searchText.length > 0,
+        })}
+      />
     </label>
   );
 }

@@ -33,5 +33,5 @@ export const updateAllTasksStatus = (
     }));
   }
 
-  return modifyTasks;
+  return modifyTasks.length > 0 ? modifyTasks : allTasks;
 };

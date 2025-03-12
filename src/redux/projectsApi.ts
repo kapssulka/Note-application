@@ -5,6 +5,8 @@ interface INewFieldTasks {
   tasks: Tasks;
 }
 
+type NewField = Partial<IProjectData>;
+
 export const projectsApi = createApi({
   reducerPath: "projectsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/" }),
@@ -42,7 +44,7 @@ export const projectsApi = createApi({
       invalidatesTags: [{ type: "Projects", id: "LIST" }],
     }),
     // изменение поля
-    patchData: build.mutation<void, [string, INewFieldTasks]>({
+    patchData: build.mutation<void, [string, NewField]>({
       query: ([id, newField]) => ({
         url: `projects/${id}`,
         method: "PATCH",

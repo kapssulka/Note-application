@@ -3,7 +3,7 @@ import classes from "./DropDownItemList.module.scss";
 import cn from "classnames";
 
 import { usePatchDataMutation } from "../../../redux/projectsApi";
-import { IdProject, IStatus, Tasks } from "../../../types/data";
+import { IdProject, Status, Tasks } from "../../../types/data";
 import * as React from "react";
 import {
   isStatusSelectable,
@@ -11,7 +11,7 @@ import {
 } from "../../../helpers/workWithStatus";
 
 interface IProps {
-  status: IStatus;
+  status: Status;
   idProject: IdProject;
   setActiveDrop: Dispatch<SetStateAction<boolean>>;
   allTasks: Tasks;
