@@ -2,14 +2,11 @@ import classes from "./Aside.module.scss";
 import { HiHome } from "react-icons/hi";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-import { MdLogout } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import Logo from "../../elements/Logo/Logo";
-import { logOutUser } from "../../../helpers/HelpersFirebase";
+import LogoutButton from "../../elements/LogoutButton/LogoutButton";
 
 export default function Aside() {
-  const handleLogOut = () => logOutUser();
-
   return (
     <aside className={classes.aside}>
       <Logo />
@@ -40,9 +37,7 @@ export default function Aside() {
         </NavLink>
       </div>
 
-      <button onClick={handleLogOut} className={classes.logout}>
-        <MdLogout className={classes.linkIcon} size={40} />
-      </button>
+      <LogoutButton />
     </aside>
   );
 }
